@@ -38,6 +38,11 @@ public class UserController {
     @Autowired
     private IFileStorageService storageService;
 
+    public FileDBRepository getImageRepository() {
+        return ImageRepository;
+    }
+
+
     @Autowired
     public UserController(UserServiceImpl userService, ImageService imageService) {
         this.userService = userService;
@@ -92,4 +97,6 @@ public class UserController {
         LocalDateTime date = LocalDateTime. of(2022, 11, 26, 13, 55, 36, 123);
        return  userService.NBClaimsLastDate(date, userid);
     }
+
+
 }
