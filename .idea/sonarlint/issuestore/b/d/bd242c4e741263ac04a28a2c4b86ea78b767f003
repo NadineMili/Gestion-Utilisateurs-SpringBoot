@@ -1,0 +1,18 @@
+
+t
+java:S1104E"WMake phoneNumber a static final constant or non-public and provide accessors if needed.(Ò€æ¨8¸¥ô¦Ş1
+r
+java:S1104G"PMake kind a static final constant or non-public and provide accessors if needed.(šÍõ¼øÿÿÿÿ8¹¥ô¦Ş1
+v
+java:S1104H"TMake Location a static final constant or non-public and provide accessors if needed.(Ã€î¡ùÿÿÿÿ8¹¥ô¦Ş1
+p
+java:S1104I"SMake country a static final constant or non-public and provide accessors if needed.(Ø¬8¹¥ô¦Ş1
+u
+java:S1104L"XMake studentLevel a static final constant or non-public and provide accessors if needed.(ôÙÆô8¹¥ô¦Ş1
+~
+java:S1104P"\Make professorDiploma a static final constant or non-public and provide accessors if needed.(ŒÔºÙûÿÿÿÿ8º¥ô¦Ş1
+}
+java:S1104R"[Make experienceYears a static final constant or non-public and provide accessors if needed.(ší÷ßùÿÿÿÿ8º¥ô¦Ş1
+t	java:S116H"SRename this field "Location" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ã€î¡ùÿÿÿÿ8Õ¥ô¦Ş1
+Ÿ
+java:S1186ò"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ØØ¥û8Õ¥ô¦Ş1

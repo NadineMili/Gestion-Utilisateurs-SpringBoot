@@ -1,0 +1,8 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ş¯Öÿÿÿÿÿ
+2
+java:S1116"Remove this empty statement.(çõ²ó
+h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(í®Û³øÿÿÿÿ
+h	java:S100%"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–îšûøÿÿÿÿ
+\
+java:S1128"ARemove this unused import 'java.time.chrono.ChronoLocalDateTime'.(ÏŠÙàûÿÿÿÿ

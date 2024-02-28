@@ -1,0 +1,6 @@
+
+A
+java:S1948"&Make "user" transient or serializable.(’Ø¾ıÿÿÿÿ
+V	java:S125"<This block of commented-out lines of code should be removed.(ÿµ´ÿÿÿÿÿ
+m
+java:S6204"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(§°øÅúÿÿÿÿ

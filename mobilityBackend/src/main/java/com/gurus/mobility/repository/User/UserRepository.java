@@ -29,6 +29,7 @@ public interface    UserRepository extends JpaRepository<User,Long> {
     List<User> findUsersByRole(Set<Role> roles);
 
     Optional<User> findByUserName(String username);
+    User getByUserName(String username);
 
     User findByToken(String token);
 

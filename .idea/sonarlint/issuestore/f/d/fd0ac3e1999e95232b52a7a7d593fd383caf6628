@@ -1,0 +1,22 @@
+
+s
+java:S1488'"]Immediately return this expression instead of assigning it to the temporary variable "users".(ƒåş³
+w
+java:S14886"\Immediately return this expression instead of assigning it to the temporary variable "user".(Ï¾ÀŒúÿÿÿÿ
+D
+java:S5411¦"(Use a primitive boolean expression here.(íÆ£úÿÿÿÿ
+W
+java:S2789¹"@Methods with an "Optional" return type should never return null.(¥¹ï
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ş¯Öÿÿÿÿÿ
+k
+java:S3655="PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(ëÀéÓûÿÿÿÿ
+l
+java:S3655¥"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(ëÀéÓûÿÿÿÿ
+B
+java:S1125["'Remove the unnecessary boolean literal.(ÇÉ†‡ÿÿÿÿÿ
+C
+java:S1125¦"'Remove the unnecessary boolean literal.(íÆ£úÿÿÿÿ
+S
+java:S1068M"8Remove this unused "storageDirectoryPath" private field.(ü¡Š¡üÿÿÿÿ
+R
+java:S1144O"<Remove this unused private "makeDirectoryIfNotExist" method.(±Áôè

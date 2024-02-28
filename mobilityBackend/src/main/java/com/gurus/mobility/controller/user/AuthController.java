@@ -13,6 +13,8 @@ import javax.validation.Valid;
 import com.gurus.mobility.payload.request.*;
 import com.gurus.mobility.payload.response.*;
 import com.gurus.mobility.service.User.*;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -38,67 +40,115 @@ import com.twilio.type.PhoneNumber;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/auth")
+@Slf4j
+@AllArgsConstructor
 public class AuthController {
-    @Autowired
+
     AuthenticationManager authenticationManager;
 
-    @Autowired
     UserRepository userRepository;
 
-    @Autowired
     IUserService userService;
 
-    @Autowired
     RoleRepository roleRepository;
 
-    @Autowired
     PasswordEncoder encoder;
 
-    @Autowired
     JwtUtils jwtUtils;
 
-    @Autowired
     RefreshTokenService refreshTokenService;
 
-    @Autowired
     EmailService emailService;
 
-    @PostMapping("/signin")
-    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
+//
+//    @PostMapping("/signin")
+//    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
+//        log.info(loginRequest.getUsername());
+//        log.info(loginRequest.getPassword());
+//
+//        Authentication authentication = authenticationManager
+//                .authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
+//
+//        SecurityContextHolder.getContext().setAuthentication(authentication);
+//
+//        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+//
+//        Long id = userDetails.getId();
+//
+//        User user = userRepository.findById(id).get();
+//        log.info("user11"+user.toString());
+//        if (user.getVerified() == false) {
+//            ResponseEntity.badRequest().body(new MessageResponse("Your account is desactivated!"));
+//            System.out.println("Your account is desactivated!");
+//        } else {
+//            ResponseCookie jwtCookie = jwtUtils.generateJwtCookie(userDetails);
+//
+//            List<String> roles = userDetails.getAuthorities().stream()
+//                    .map(item -> item.getAuthority())
+//                    .collect(Collectors.toList());
+//            log.info(roles.toString());
+//
+//            RefreshToken refreshToken = refreshTokenService.createRefreshToken(userDetails.getId());
+//
+//            ResponseCookie jwtRefreshCookie = jwtUtils.generateRefreshJwtCookie(refreshToken.getToken());
+//            log.info("ppppppppppppppppppppppppppp"+jwtRefreshCookie.toString());
+//            return ResponseEntity.ok()
+//                    .header(HttpHeaders.SET_COOKIE, jwtCookie.toString())
+//                    .header(HttpHeaders.SET_COOKIE, jwtRefreshCookie.toString())
+//                    .body(new UserInfoResponse(userDetails.getId(),
+//
+//                            userDetails.getUsername(),
+//                            userDetails.getEmail(),
+//                            roles));
+//        }
+//        return null;
+//    }
+@PostMapping("/signin")
+public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
+    log.info(loginRequest.getUsername());
+    log.info(loginRequest.getPassword());
 
-        Authentication authentication = authenticationManager
-                .authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
+    Authentication authentication = authenticationManager
+            .authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
 
-        SecurityContextHolder.getContext().setAuthentication(authentication);
+    SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+    UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
 
-        Long id = userDetails.getId();
-        User user = userRepository.findById(id).get();
-        if (user.getVerified() == false) {
-            ResponseEntity.badRequest().body(new MessageResponse("Your account is desactivated!"));
-            System.out.println("Your account is desactivated!");
-        } else {
-            ResponseCookie jwtCookie = jwtUtils.generateJwtCookie(userDetails);
+    Long id = userDetails.getId();
 
-            List<String> roles = userDetails.getAuthorities().stream()
-                    .map(item -> item.getAuthority())
-                    .collect(Collectors.toList());
+    User user = userRepository.findById(id).orElse(null);
+    log.info("user11" + (user != null ? user.toString() : "User not found"));
 
-            RefreshToken refreshToken = refreshTokenService.createRefreshToken(userDetails.getId());
+    if (user != null && !user.getVerified()) {
+        return ResponseEntity.badRequest().body(new MessageResponse("Your account is deactivated!"));
+    } else {
+        ResponseCookie jwtCookie = jwtUtils.generateJwtCookie(userDetails);
 
-            ResponseCookie jwtRefreshCookie = jwtUtils.generateRefreshJwtCookie(refreshToken.getToken());
+        List<String> roles = userDetails.getAuthorities().stream()
+                .map(item -> item.getAuthority())
+                .collect(Collectors.toList());
+        log.info(roles.toString());
 
-            return ResponseEntity.ok()
-                    .header(HttpHeaders.SET_COOKIE, jwtCookie.toString())
-                    .header(HttpHeaders.SET_COOKIE, jwtRefreshCookie.toString())
-                    .body(new UserInfoResponse(userDetails.getId(),
-                            userDetails.getUsername(),
-                            userDetails.getEmail(),
-                            roles));
-        }
-        return null;
+        RefreshToken refreshToken = refreshTokenService.createRefreshToken(userDetails.getId());
+
+        ResponseCookie jwtRefreshCookie = jwtUtils.generateRefreshJwtCookie(refreshToken.getToken());
+        log.info("ppppppppppppppppppppppppppp" + jwtRefreshCookie.toString());
+
+        // Ajoutez le token JWT à la réponse
+        String jwtToken = jwtCookie.getValue(); // Obtenez la valeur du cookie JWT
+        UserInfoResponse userInfoResponse = new UserInfoResponse(userDetails.getId(),
+                userDetails.getUsername(),
+                userDetails.getEmail(),
+                roles);
+        userInfoResponse.setToken(jwtToken); // Ajoutez le token à la réponse
+
+        return ResponseEntity.ok()
+                .header(HttpHeaders.SET_COOKIE, jwtCookie.toString())
+                .header(HttpHeaders.SET_COOKIE, jwtRefreshCookie.toString())
+                .body(userInfoResponse);
     }
+}
 
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {

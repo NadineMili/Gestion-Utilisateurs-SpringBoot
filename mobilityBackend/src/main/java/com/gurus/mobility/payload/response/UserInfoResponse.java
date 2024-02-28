@@ -1,4 +1,5 @@
 package com.gurus.mobility.payload.response;
+
 import java.util.List;
 
 public class UserInfoResponse {
@@ -6,12 +7,22 @@ public class UserInfoResponse {
     private String username;
     private String email;
     private List<String> roles;
+    private String token; // Ajout de la propriété token
 
     public UserInfoResponse(Long id, String username, String email, List<String> roles) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.roles = roles;
+    }
+
+    // Ajout du constructeur avec le token
+    public UserInfoResponse(Long id, String username, String email, List<String> roles, String token) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.roles = roles;
+        this.token = token;
     }
 
     public Long getId() {
@@ -40,5 +51,13 @@ public class UserInfoResponse {
 
     public List<String> getRoles() {
         return roles;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

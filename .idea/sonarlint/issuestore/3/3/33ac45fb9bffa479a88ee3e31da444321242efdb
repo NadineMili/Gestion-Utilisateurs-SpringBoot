@@ -1,0 +1,26 @@
+
+|
+java:S2293§"YReplace the type specification in this constructor call with the diamond operator ("<>").(™åðøùÿÿÿÿ8¯°è³Þ1
+}
+java:S1192¬"ZDefine a constant instead of duplicating this literal "Error: Role is not found." 7 times.(ÉÿÊ–ùÿÿÿÿ8°°è³Þ1
+F
+java:S5411›"(Use a primitive boolean expression here.(êº°˜8±°è³Þ1
+F
+java:S5411Ÿ"(Use a primitive boolean expression here.(Œ‰ÓŒ8²°è³Þ1
+C
+java:S1452k"&Remove usage of generic wildcard type.(—­è€8Ö°è³Þ1
+]	java:S125A"<This block of commented-out lines of code should be removed.(Ú­‚›ýÿÿÿÿ8Ãá„´Þ1
+p
+java:S6204‚"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8þª…´Þ1
+I
+java:S1452š"&Remove usage of generic wildcard type.(éã°éúÿÿÿÿ8ê°è³Þ1
+D
+java:S1452á"&Remove usage of generic wildcard type.(úíÍ¢8í°è³Þ1
+I
+java:S1452÷"&Remove usage of generic wildcard type.(ƒ®“Ÿøÿÿÿÿ8»«…´Þ1
+^	java:S125ø"<This block of commented-out lines of code should be removed.(¿¢¹Ïúÿÿÿÿ8í°è³Þ1
+Y	java:S125ú"<This block of commented-out lines of code should be removed.(ò‘æ¼8í°è³Þ1
+ 
+java:S1130"}Remove the declaration of thrown exception 'java.io.UnsupportedEncodingException', as it cannot be thrown from method's body.(çÚ©„ùÿÿÿÿ8ï°è³Þ1
+™
+java:S1130"vRemove the declaration of thrown exception 'javax.mail.MessagingException', as it cannot be thrown from method's body.(çÚ©„ùÿÿÿÿ8ï°è³Þ1

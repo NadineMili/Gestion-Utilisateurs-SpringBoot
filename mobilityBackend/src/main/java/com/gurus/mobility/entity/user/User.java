@@ -36,6 +36,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 @Table(uniqueConstraints = {
         @UniqueConstraint(columnNames = "identifiant"),
         @UniqueConstraint(columnNames = "username"),
@@ -81,7 +82,7 @@ public class User {
     public int experienceYears;
     @ManyToOne
     private FileDB image;
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))

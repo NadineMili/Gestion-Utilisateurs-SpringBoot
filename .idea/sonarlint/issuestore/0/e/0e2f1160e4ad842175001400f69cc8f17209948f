@@ -1,0 +1,11 @@
+
+V
+java:S46843"@Replace this persistent entity with a simple POJO or DTO object.(ê’öÒ
+V	java:S125&"<This block of commented-out lines of code should be removed.(Í®ﬁ˘ˇˇˇˇ
+V	java:S125,"<This block of commented-out lines of code should be removed.(ÄÜ∫îˇˇˇˇˇ
+V
+java:S4684C"@Replace this persistent entity with a simple POJO or DTO object.(∂˝…ã
+`
+java:S1128"JRemove this unused import 'com.gurus.mobility.entity.Candidacy.Candidacy'.(ïìµë
+v
+java:S1128"[Remove this unused import 'com.gurus.mobility.service.CandidacyServices.ICandidacyService'.(·Ñºï˘ˇˇˇˇ

@@ -1,0 +1,21 @@
+
+k
+java:S1192A"NDefine a constant instead of duplicating this literal "simulatedUser" 3 times.(»Ş¹æ8ˆí¯¥Ş1
+f
+java:S3252B"DUse static access with "org.mockito.ArgumentMatchers" for "anyLong".(×–ú±ûÿÿÿÿ8Ÿğ¯¥Ş1
+]
+java:S3252t"@Use static access with "org.mockito.ArgumentMatchers" for "any".(¹ï8¾ğ¯¥Ş1
+a
+java:S3252t"DUse static access with "org.mockito.ArgumentMatchers" for "anyLong".(¹ï8¿ğ¯¥Ş1
+g
+java:S3252„"DUse static access with "org.mockito.ArgumentMatchers" for "anyLong".(¸°…ûÿÿÿÿ8Åğ¯¥Ş1
+d
+java:S3252˜"FUse static access with "org.mockito.ArgumentMatchers" for "anyString".(ˆØßÕ8Íğ¯¥Ş1
+g
+java:S3252œ"DUse static access with "org.mockito.ArgumentMatchers" for "anyLong".(×–ú±ûÿÿÿÿ8Ïğ¯¥Ş1
+O
+java:S3011Ÿ",This accessibility update should be removed.(èşÿ”øÿÿÿÿ8Ğğ¯¥Ş1
+O
+java:S3011 ",This accessibility bypass should be removed.(ñ¾ó§ÿÿÿÿÿ8Ñğ¯¥Ş1
+H
+java:S5960V"+Remove this assertion from production code.(ùñÄÚ8Õğ¯¥Ş1
